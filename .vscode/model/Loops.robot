@@ -1,20 +1,6 @@
 *** Settings ***
-Documentation     A resource file containing the application specific keywords
-
-
-
-*** Variables ***
-${URL}=     https://www.bing.com/
-
-
-*** Test Cases ***
-Check out me
-    Begin Tests
-    Open UrL
-    Put Keyword In Search and Search
-    Check and print search results
-    Get result screenthsot
-    End web Test  
+Library           String
+Documentation     How to looopp in Robot Framework
 
 *** Test Cases ***
 For-Loop-In-Range
