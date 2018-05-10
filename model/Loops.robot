@@ -2,7 +2,7 @@
 Library           String
 Documentation     How to looopp in Robot Framework
 
-*** Test Cases ***
+*** Keywords ***
 For-Loop-In-Range
         : FOR    ${INDEX}    IN RANGE    1    3
         \    Log    ${INDEX}

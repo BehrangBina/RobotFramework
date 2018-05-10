@@ -1,9 +1,6 @@
 *** Settings ***
 Library           Selenium2Library
 *** Keywords ***
-Begin Tests
-    Open Browser    about:blank     Chrome
-    Maximize Browser Window
 Open UrL
     Go To       ${URL}
 Put Keyword In Search and Search  
@@ -19,5 +16,3 @@ Check and print search results
     Log To Console    Behrang Bina Found
 Get result screenthsot
     Capture Page Screenshot        Behrang_Bina.png
-End web Test
-    Close Browser
