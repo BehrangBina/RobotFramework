@@ -10,3 +10,5 @@ Test Teardown       Common.End web Test
 Search For Product
     LandingPage.Load
     LandingPage.Verify Landing Page Loaded
+    LandingPage.Find Search Box and Search
+

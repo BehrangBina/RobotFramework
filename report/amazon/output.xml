@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180513 20:48:11.734" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="D:\work\RobotFramework\model\Tests\Amazon.robot" id="s1" name="Amazon">
+<test id="s1-t1" name="Search For Product">
+<kw type="setup" name="Begin Tests" library="Common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180513 20:48:11.919" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20180513 20:48:18.391" starttime="20180513 20:48:11.919"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180513 20:48:19.510" starttime="20180513 20:48:18.391"></status>
+</kw>
+<status status="PASS" endtime="20180513 20:48:19.510" starttime="20180513 20:48:11.919"></status>
+</kw>
+<kw name="Load" library="LandingPage">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20180513 20:48:19.511" level="INFO">Opening url 'https://www.amazon.com.au/'</msg>
+<status status="PASS" endtime="20180513 20:48:23.359" starttime="20180513 20:48:19.511"></status>
+</kw>
+<status status="PASS" endtime="20180513 20:48:23.359" starttime="20180513 20:48:19.510"></status>
+</kw>
+<kw name="Verify Landing Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>${LoadedCondition}</arg>
+</arguments>
+<status status="PASS" endtime="20180513 20:48:23.410" starttime="20180513 20:48:23.361"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Checked Page Containes ${LoadedCondition} in ${URL}</arg>
+</arguments>
+<status status="PASS" endtime="20180513 20:48:23.413" starttime="20180513 20:48:23.410"></status>
+</kw>
+<status status="PASS" endtime="20180513 20:48:23.414" starttime="20180513 20:48:23.360"></status>
+</kw>
+<kw name="Find Search Box and Search" library="LandingPage">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=${SearchLocator}</arg>
+<arg>${Query}</arg>
+</arguments>
+<msg timestamp="20180513 20:48:23.416" level="INFO">Typing text 'Robot Framework Test Automation' into text field 'name=field-keywords'.</msg>
+<status status="PASS" endtime="20180513 20:48:24.050" starttime="20180513 20:48:23.415"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='Go']</arg>
+</arguments>
+<msg timestamp="20180513 20:48:24.050" level="INFO">Clicking element 'xpath=//input[@value='Go']'.</msg>
+<status status="PASS" endtime="20180513 20:48:29.962" starttime="20180513 20:48:24.050"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=${Result}</arg>
+</arguments>
+<msg timestamp="20180513 20:48:29.992" level="INFO">Element 'id=s-result-count' is displayed.</msg>
+<status status="PASS" endtime="20180513 20:48:29.992" starttime="20180513 20:48:29.962"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>id=${Result}</arg>
+</arguments>
+<assign>
+<var>${txt}</var>
+</assign>
+<msg timestamp="20180513 20:48:30.017" level="INFO">${txt} = 1 result for "Robot Framework Test Automation"</msg>
+<status status="PASS" endtime="20180513 20:48:30.017" starttime="20180513 20:48:29.993"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${txt}</arg>
+</arguments>
+<status status="PASS" endtime="20180513 20:48:30.019" starttime="20180513 20:48:30.018"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180513 20:48:30.930" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180513 20:48:30.930" starttime="20180513 20:48:30.019"></status>
+</kw>
+<status status="PASS" endtime="20180513 20:48:30.930" starttime="20180513 20:48:23.414"></status>
+</kw>
+<kw type="teardown" name="End web Test" library="Common">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180513 20:48:34.197" starttime="20180513 20:48:30.932"></status>
+</kw>
+<status status="PASS" endtime="20180513 20:48:34.197" starttime="20180513 20:48:30.932"></status>
+</kw>
+<status status="PASS" endtime="20180513 20:48:34.198" critical="yes" starttime="20180513 20:48:11.918"></status>
+</test>
+<status status="PASS" endtime="20180513 20:48:34.200" starttime="20180513 20:48:11.737"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Amazon" pass="1">Amazon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
