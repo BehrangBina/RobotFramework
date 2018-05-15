@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180515 23:18:05.064" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="D:\work\RobotFramework\model\ReadFromFile.robot" id="s1" name="ReadFromFile">
+<test id="s1-t1" name="Check excel doc">
+<kw name="Open Excel" library="ExcelLibrary">
+<doc>Opens the Excel file from the path provided in the file name parameter.</doc>
+<arguments>
+<arg>../model/Resources/users.xls</arg>
+</arguments>
+<msg timestamp="20180515 23:18:05.177" level="FAIL">IOError: [Errno 2] No such file or directory: u'../model/Resources/users.xls'</msg>
+<status status="FAIL" endtime="20180515 23:18:05.177" starttime="20180515 23:18:05.177"></status>
+</kw>
+<status status="FAIL" endtime="20180515 23:18:05.177" critical="yes" starttime="20180515 23:18:05.177">IOError: [Errno 2] No such file or directory: u'../model/Resources/users.xls'</status>
+</test>
+<status status="FAIL" endtime="20180515 23:18:05.177" starttime="20180515 23:18:05.064"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="ReadFromFile" pass="0">ReadFromFile</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

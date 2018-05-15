@@ -1,118 +1,313 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180513 20:40:51.790" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
-<suite source="D:\work\RobotFramework\model\Tests\Amazon.robot" id="s1" name="Amazon">
-<test id="s1-t1" name="Search For Product">
-<kw type="setup" name="Begin Tests" library="Common">
-<kw name="Open Browser" library="Selenium2Library">
-<doc>Opens a new browser instance to the given ``url``.</doc>
+<robot generated="20180516 01:11:12.700" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="D:\work\RobotFramework\model\ReadFromFile.robot" id="s1" name="ReadFromFile">
+<test id="s1-t1" name="Check excel doc">
+<kw name="Open Excel" library="ExcelLibrary">
+<doc>Opens the Excel file from the path provided in the file name parameter.</doc>
 <arguments>
-<arg>about:blank</arg>
-<arg>chrome</arg>
+<arg>../model/Resources/users.xls</arg>
 </arguments>
-<msg timestamp="20180513 20:40:51.995" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<msg timestamp="20180513 20:40:56.127" level="INFO">Could not get IP address for host: localhost</msg>
-<status status="PASS" endtime="20180513 20:41:01.794" starttime="20180513 20:40:51.995"></status>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20180513 20:41:02.916" starttime="20180513 20:41:01.794"></status>
-</kw>
-<status status="PASS" endtime="20180513 20:41:02.916" starttime="20180513 20:40:51.995"></status>
-</kw>
-<kw name="Load" library="LandingPage">
-<kw name="Go To" library="Selenium2Library">
-<doc>Navigates the active browser instance to the provided ``url``.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20180513 20:41:02.917" level="INFO">Opening url 'https://www.amazon.com.au/'</msg>
-<status status="PASS" endtime="20180513 20:41:08.025" starttime="20180513 20:41:02.917"></status>
-</kw>
-<status status="PASS" endtime="20180513 20:41:08.025" starttime="20180513 20:41:02.916"></status>
-</kw>
-<kw name="Verify Landing Page Loaded" library="LandingPage">
-<kw name="Wait Until Page Contains" library="Selenium2Library">
-<doc>Waits until ``text`` appears on current page.</doc>
-<arguments>
-<arg>${LoadedCondition}</arg>
-</arguments>
-<status status="PASS" endtime="20180513 20:41:08.143" starttime="20180513 20:41:08.027"></status>
+<status status="PASS" endtime="20180516 01:11:12.919" starttime="20180516 01:11:12.906"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
-<arg>Checked Page Containes ${LoadedCondition} in ${URL}</arg>
+<arg>${\n}</arg>
 </arguments>
-<status status="PASS" endtime="20180513 20:41:08.144" starttime="20180513 20:41:08.143"></status>
+<status status="PASS" endtime="20180516 01:11:12.920" starttime="20180516 01:11:12.919"></status>
 </kw>
-<status status="PASS" endtime="20180513 20:41:08.145" starttime="20180513 20:41:08.026"></status>
-</kw>
-<kw name="Find Search Box and Search" library="LandingPage">
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<kw name="Get Column Count" library="ExcelLibrary">
+<doc>Returns the specific number of columns of the sheet name specified.</doc>
 <arguments>
-<arg>name=${SearchLocator}</arg>
-<arg>${Query}</arg>
-</arguments>
-<msg timestamp="20180513 20:41:08.146" level="INFO">Typing text 'Robot Framework Test Automation' into text field 'name=field-keywords'.</msg>
-<status status="PASS" endtime="20180513 20:41:08.649" starttime="20180513 20:41:08.145"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath=//input[@value='Go']</arg>
-</arguments>
-<msg timestamp="20180513 20:41:08.650" level="INFO">Clicking element 'xpath=//input[@value='Go']'.</msg>
-<status status="PASS" endtime="20180513 20:41:10.019" starttime="20180513 20:41:08.650"></status>
-</kw>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>id=${Result}</arg>
-</arguments>
-<msg timestamp="20180513 20:41:10.055" level="INFO">Element 'id=s-result-count' is displayed.</msg>
-<status status="PASS" endtime="20180513 20:41:10.055" starttime="20180513 20:41:10.020"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of element identified by ``locator``.</doc>
-<arguments>
-<arg>id=${Result}</arg>
+<arg>Sheet1</arg>
 </arguments>
 <assign>
-<var>${txt}</var>
+<var>${strColCount}</var>
 </assign>
-<msg timestamp="20180513 20:41:10.080" level="INFO">${txt} = 1 result for "Robot Framework Test Automation"</msg>
-<status status="PASS" endtime="20180513 20:41:10.080" starttime="20180513 20:41:10.055"></status>
+<msg timestamp="20180516 01:11:12.921" level="INFO">${strColCount} = 2</msg>
+<status status="PASS" endtime="20180516 01:11:12.922" starttime="20180516 01:11:12.921"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelLibrary">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>Sheet1</arg>
+</arguments>
+<assign>
+<var>${strRowCount}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.922" level="INFO">${strRowCount} = 4</msg>
+<status status="PASS" endtime="20180516 01:11:12.922" starttime="20180516 01:11:12.922"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
-<arg>${txt}</arg>
+<arg>columns=${strColCount} rows=${strRowCount}</arg>
 </arguments>
-<status status="PASS" endtime="20180513 20:41:10.081" starttime="20180513 20:41:10.080"></status>
+<status status="PASS" endtime="20180516 01:11:12.924" starttime="20180516 01:11:12.923"></status>
 </kw>
-<status status="PASS" endtime="20180513 20:41:10.081" starttime="20180513 20:41:08.145"></status>
+<kw name="Read the value of a cell" library="ReadSpreadSheet">
+<arguments>
+<arg>0</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${cellVal}</var>
+</assign>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${row}-${column}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.925" starttime="20180516 01:11:12.924"></status>
 </kw>
-<kw type="teardown" name="End web Test" library="Common">
-<kw name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180513 20:41:13.287" starttime="20180513 20:41:10.082"></status>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>${row}</arg>
+<arg>${column}</arg>
+</arguments>
+<assign>
+<var>${colVal}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.927" level="INFO">${colVal} = Behrang</msg>
+<status status="PASS" endtime="20180516 01:11:12.927" starttime="20180516 01:11:12.925"></status>
 </kw>
-<status status="PASS" endtime="20180513 20:41:13.287" starttime="20180513 20:41:10.082"></status>
+<msg timestamp="20180516 01:11:12.927" level="INFO">${cellVal} = Behrang</msg>
+<status status="PASS" endtime="20180516 01:11:12.927" starttime="20180516 01:11:12.924"></status>
 </kw>
-<status status="PASS" endtime="20180513 20:41:13.287" critical="yes" starttime="20180513 20:40:51.994"></status>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${cellVal}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.928" starttime="20180516 01:11:12.927"></status>
+</kw>
+<kw name="Read the value of a cell" library="ReadSpreadSheet">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${cellVal}</var>
+</assign>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${row}-${column}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.929" starttime="20180516 01:11:12.929"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>${row}</arg>
+<arg>${column}</arg>
+</arguments>
+<assign>
+<var>${colVal}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.930" level="INFO">${colVal} = 37.0</msg>
+<status status="PASS" endtime="20180516 01:11:12.930" starttime="20180516 01:11:12.929"></status>
+</kw>
+<msg timestamp="20180516 01:11:12.930" level="INFO">${cellVal} = 37.0</msg>
+<status status="PASS" endtime="20180516 01:11:12.930" starttime="20180516 01:11:12.928"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${cellVal}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.931" starttime="20180516 01:11:12.931"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.933" critical="yes" starttime="20180516 01:11:12.906"></status>
 </test>
-<status status="PASS" endtime="20180513 20:41:13.291" starttime="20180513 20:40:51.793"></status>
+<test id="s1-t2" name="Display Data">
+<kw name="Open Excel" library="ExcelLibrary">
+<doc>Opens the Excel file from the path provided in the file name parameter.</doc>
+<arguments>
+<arg>../model/Resources/users.xls</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.948" starttime="20180516 01:11:12.935"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelLibrary">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>Sheet1</arg>
+</arguments>
+<assign>
+<var>${strRowCount}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.952" level="INFO">${strRowCount} = 4</msg>
+<status status="PASS" endtime="20180516 01:11:12.952" starttime="20180516 01:11:12.951"></status>
+</kw>
+<kw name="Display Data" library="ReadSpreadSheet">
+<arguments>
+<arg>${strRowCount}</arg>
+</arguments>
+<kw type="for" name="${index} IN RANGE [ 0 | ${rows} ]">
+<kw type="foritem" name="${index} = 0">
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>0</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col1Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.957" level="INFO">${col1Val} = User Name</msg>
+<status status="PASS" endtime="20180516 01:11:12.957" starttime="20180516 01:11:12.955"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col2Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.958" level="INFO">${col2Val} = Age</msg>
+<status status="PASS" endtime="20180516 01:11:12.958" starttime="20180516 01:11:12.957"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${col1Val} - ${col2Val}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.958" starttime="20180516 01:11:12.958"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.959" starttime="20180516 01:11:12.955"></status>
+</kw>
+<kw type="foritem" name="${index} = 1">
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>0</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col1Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.959" level="INFO">${col1Val} = Behrang</msg>
+<status status="PASS" endtime="20180516 01:11:12.959" starttime="20180516 01:11:12.959"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col2Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.960" level="INFO">${col2Val} = 37.0</msg>
+<status status="PASS" endtime="20180516 01:11:12.960" starttime="20180516 01:11:12.960"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${col1Val} - ${col2Val}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.961" starttime="20180516 01:11:12.960"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.961" starttime="20180516 01:11:12.959"></status>
+</kw>
+<kw type="foritem" name="${index} = 2">
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>0</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col1Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.962" level="INFO">${col1Val} = Katy</msg>
+<status status="PASS" endtime="20180516 01:11:12.962" starttime="20180516 01:11:12.961"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col2Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.962" level="INFO">${col2Val} = 24.0</msg>
+<status status="PASS" endtime="20180516 01:11:12.962" starttime="20180516 01:11:12.962"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${col1Val} - ${col2Val}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.963" starttime="20180516 01:11:12.962"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.963" starttime="20180516 01:11:12.961"></status>
+</kw>
+<kw type="foritem" name="${index} = 3">
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>0</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col1Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.964" level="INFO">${col1Val} = Robert</msg>
+<status status="PASS" endtime="20180516 01:11:12.964" starttime="20180516 01:11:12.963"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${col2Val}</var>
+</assign>
+<msg timestamp="20180516 01:11:12.965" level="INFO">${col2Val} = 22.0</msg>
+<status status="PASS" endtime="20180516 01:11:12.965" starttime="20180516 01:11:12.964"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${col1Val} - ${col2Val}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 01:11:12.967" starttime="20180516 01:11:12.966"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.967" starttime="20180516 01:11:12.963"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.968" starttime="20180516 01:11:12.954"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.968" starttime="20180516 01:11:12.953"></status>
+</kw>
+<status status="PASS" endtime="20180516 01:11:12.968" critical="yes" starttime="20180516 01:11:12.934"></status>
+</test>
+<status status="PASS" endtime="20180516 01:11:12.970" starttime="20180516 01:11:12.707"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Amazon" pass="1">Amazon</stat>
+<stat fail="0" id="s1" name="ReadFromFile" pass="2">ReadFromFile</stat>
 </suite>
 </statistics>
 <errors>
