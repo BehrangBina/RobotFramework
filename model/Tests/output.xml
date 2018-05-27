@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180527 20:10:16.241" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="D:\work\RobotFramework\model\Tests\External.robot" id="s1" name="External">
+<test id="s1-t1" name="Use External Library">
+<kw name="Do Something Special" library="tbr">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Hellp</arg>
+</arguments>
+<status status="PASS" endtime="20180527 20:10:16.273" starttime="20180527 20:10:16.273"></status>
+</kw>
+<status status="PASS" endtime="20180527 20:10:16.273" starttime="20180527 20:10:16.272"></status>
+</kw>
+<kw name="Do Another Special Thing" library="MyCustomLibrary">
+<assign>
+<var>${val}</var>
+</assign>
+<msg timestamp="20180527 20:10:16.274" level="INFO">another special thing from python</msg>
+<msg timestamp="20180527 20:10:16.274" level="INFO">${val} = 4</msg>
+<status status="PASS" endtime="20180527 20:10:16.274" starttime="20180527 20:10:16.274"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${val}</arg>
+</arguments>
+<status status="PASS" endtime="20180527 20:10:16.275" starttime="20180527 20:10:16.275"></status>
+</kw>
+<kw name="Say Hello" library="MyCustomLibrary">
+<arguments>
+<arg>Behrang</arg>
+</arguments>
+<assign>
+<var>${val2}</var>
+</assign>
+<msg timestamp="20180527 20:10:16.276" level="INFO">${val2} = Hello Behrang</msg>
+<status status="PASS" endtime="20180527 20:10:16.276" starttime="20180527 20:10:16.276"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${val2}</arg>
+</arguments>
+<status status="PASS" endtime="20180527 20:10:16.277" starttime="20180527 20:10:16.277"></status>
+</kw>
+<status status="PASS" endtime="20180527 20:10:16.278" critical="yes" starttime="20180527 20:10:16.271"></status>
+</test>
+<status status="PASS" endtime="20180527 20:10:16.280" starttime="20180527 20:10:16.244"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="External" pass="1">External</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
