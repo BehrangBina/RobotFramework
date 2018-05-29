@@ -10,3 +10,4 @@ Use External Library
     ${val2} =  Say Hello  Behrang 
     Log To Console  ${val2}
     #Something Good
+#//span[@class='a-size-small'][contains(text(),'CRASH')]
