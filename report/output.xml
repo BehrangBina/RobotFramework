@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180531 00:52:11.741" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="D:\work\RobotFramework\model\GetColumnByName.robot" id="s1" name="GetColumnByName">
+<test id="s1-t1" name="User can get a column by Name">
+<kw name="Read Column By name">
+<arguments>
+<arg>model/Resources/users.xls</arg>
+</arguments>
+<kw name="Open Excel" library="ExcelLibrary">
+<doc>Opens the Excel file from the path provided in the file name parameter.</doc>
+<arguments>
+<arg>${excelFileLocation}</arg>
+</arguments>
+<status status="PASS" endtime="20180531 00:52:11.870" starttime="20180531 00:52:11.852"></status>
+</kw>
+<kw name="Get Row Values" library="ExcelLibrary">
+<doc>Returns the specific row values of the sheet name specified.</doc>
+<arguments>
+<arg>${sheetName}</arg>
+<arg>${headerId}</arg>
+</arguments>
+<assign>
+<var>${headerVal}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.872" level="INFO">${headerVal} = [('A1', u'First Name'), ('B1', u'Last Name'), ('C1', u'Status'), ('D1', u'Hobby'), ('E1', u'Country'), ('F1', u'Dob')]</msg>
+<status status="PASS" endtime="20180531 00:52:11.872" starttime="20180531 00:52:11.871"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${headerVal}</arg>
+</arguments>
+<assign>
+<var>${numberOfHeaders}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.873" level="INFO">Length is 6</msg>
+<msg timestamp="20180531 00:52:11.873" level="INFO">${numberOfHeaders} = 6</msg>
+<status status="PASS" endtime="20180531 00:52:11.873" starttime="20180531 00:52:11.872"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Number of Headers: ${numberOfHeaders}</arg>
+</arguments>
+<status status="PASS" endtime="20180531 00:52:11.874" starttime="20180531 00:52:11.873"></status>
+</kw>
+<kw name="Search">
+<arguments>
+<arg>${headerVal}</arg>
+<arg>${columnName}</arg>
+<arg>${numberOfHeaders}</arg>
+</arguments>
+<assign>
+<var>${columnId}</var>
+</assign>
+<kw type="for" name="${index} IN RANGE [ 0 | ${numberOfHeaders} ]">
+<kw type="foritem" name="${index} = 0">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${headerVal}</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${objLblValue}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.877" level="INFO">${objLblValue} = ('A1', u'First Name')</msg>
+<status status="PASS" endtime="20180531 00:52:11.877" starttime="20180531 00:52:11.876"></status>
+</kw>
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${objLblValue}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${value}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.879" level="INFO">${value} = First Name</msg>
+<status status="PASS" endtime="20180531 00:52:11.879" starttime="20180531 00:52:11.878"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${value}' == '${columnName}'</arg>
+<arg>${index}</arg>
+</arguments>
+<status status="PASS" endtime="20180531 00:52:11.879" starttime="20180531 00:52:11.879"></status>
+</kw>
+<status status="PASS" endtime="20180531 00:52:11.879" starttime="20180531 00:52:11.876"></status>
+</kw>
+<kw type="foritem" name="${index} = 1">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${headerVal}</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${objLblValue}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.880" level="INFO">${objLblValue} = ('B1', u'Last Name')</msg>
+<status status="PASS" endtime="20180531 00:52:11.880" starttime="20180531 00:52:11.880"></status>
+</kw>
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${objLblValue}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${value}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.880" level="INFO">${value} = Last Name</msg>
+<status status="PASS" endtime="20180531 00:52:11.881" starttime="20180531 00:52:11.880"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${value}' == '${columnName}'</arg>
+<arg>${index}</arg>
+</arguments>
+<msg timestamp="20180531 00:52:11.881" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20180531 00:52:11.881" starttime="20180531 00:52:11.881"></status>
+</kw>
+<status status="PASS" endtime="20180531 00:52:11.881" starttime="20180531 00:52:11.879"></status>
+</kw>
+<status status="PASS" endtime="20180531 00:52:11.881" starttime="20180531 00:52:11.876"></status>
+</kw>
+<msg timestamp="20180531 00:52:11.881" level="INFO">${columnId} = 1</msg>
+<status status="PASS" endtime="20180531 00:52:11.882" starttime="20180531 00:52:11.874"></status>
+</kw>
+<kw name="Get Column Values" library="ExcelLibrary">
+<doc>Returns the specific column values of the sheet name specified.</doc>
+<arguments>
+<arg>${sheetName}</arg>
+<arg>${columnId}</arg>
+</arguments>
+<assign>
+<var>${columnValues}</var>
+</assign>
+<msg timestamp="20180531 00:52:11.882" level="INFO">${columnValues} = [('B1', u'Last Name'), ('B2', u'Doh'), ('B3', u'Jacob'), ('B4', u'Burton')]</msg>
+<status status="PASS" endtime="20180531 00:52:11.882" starttime="20180531 00:52:11.882"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${columnValues}</arg>
+</arguments>
+<status status="PASS" endtime="20180531 00:52:11.883" starttime="20180531 00:52:11.882"></status>
+</kw>
+<status status="PASS" endtime="20180531 00:52:11.883" starttime="20180531 00:52:11.852"></status>
+</kw>
+<status status="PASS" endtime="20180531 00:52:11.883" critical="yes" starttime="20180531 00:52:11.852"></status>
+</test>
+<status status="PASS" endtime="20180531 00:52:11.884" starttime="20180531 00:52:11.741"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="GetColumnByName" pass="1">GetColumnByName</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
